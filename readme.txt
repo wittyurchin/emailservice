@@ -13,4 +13,4 @@ For systems with systemctl
 
 
 Step2:-Start celery(from project directory)
-    celery -A artivatic worker -l info
+    celery -A artivatic worker -B -l info

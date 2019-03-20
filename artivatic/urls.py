@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.http import HttpResponseRedirect
 
 urlpatterns = [
-    path('emailservice/', include('emailservice.urls')),
+    # path('^$', lambda r: HttpResponseRedirect('emailservice/')),
     path('admin/', admin.site.urls),
+    # path(r'', include("users.urls")),
+    path('', include('emailservice.urls')),
 ]

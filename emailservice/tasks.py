@@ -3,12 +3,10 @@ from __future__ import absolute_import, unicode_literals
 import os
 from django.core.wsgi import get_wsgi_application
 
-
 os.environ['DJANGO_SETTINGS_MODULE'] = 'artivatic.settings'
 application = get_wsgi_application()
 
 import csv
-
 
 # Create your tasks here
 from celery import shared_task
@@ -18,8 +16,8 @@ from datetime import date
 from io import StringIO
 from artivatic import settings
 from emailservice.sendemail import SendEmail
-logger = get_task_logger(__name__)
 
+logger = get_task_logger(__name__)
 
 
 @shared_task
@@ -46,13 +44,12 @@ def admin_mail():
     logger.info("Sending recurring mail with mail logs to admin")
     admin_email_id = settings.ADMINS[0][1]
     mails = Mails.objects.filter(sent_time__date=date.today())
-    email_ids = [mail.sent_to for mail in mails]
     csvfile = StringIO()
     csvwriter = csv.writer(csvfile)
-    for email in email_ids:
-        csvwriter.writerow([email])
-    # SendEmail().sendmail_attachment()
+    for mail in mails:
+        csvwriter.writerow([mail.sent_to, mail.sent_time])
     SendEmail().sendmail_attachment([admin_email_id], [], [], "Mail report", "Report has been attached", csvfile)
+
 
 if __name__ == '__main__':
     # from django.conf import settings  # noqa

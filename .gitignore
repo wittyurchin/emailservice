@@ -10,4 +10,5 @@ local_settings.py
 *.txt
 polls/*
 celerybeat-schedule.db
-
+!requirements.txt
+!readme.txt

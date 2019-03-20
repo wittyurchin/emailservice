@@ -31,7 +31,7 @@ class SendEmail:
         return Template(template_file_content)
 
     def sendmail_csv_single(self, to_email):
-        file_path = os.path.join(BASE_DIR, 'emailservice/email_message_template.txt')
+        file_path = os.path.join(BASE_DIR, 'artivatic/emailservice/email_message_template.txt')
         message_template = self.read_template(
             file_path)
         # add in the actual person name to the message template

@@ -16,14 +16,15 @@
 
     <!-- Custom styles for this template -->
     {% load static %}
-    <link href="{% static " css
-    /form-validation.css" %}" rel="stylesheet"/>
+    <!--<link href="{% static " css-->
+    <!--/form-validation.css" %}" rel="stylesheet"/>-->
     <!--<img src="{% static "my_app/example.jpg" %}" alt="My image">-->
 </head>
 
 <body class="bg-light">
 
 <div class="container">
+    <a href="{% url 'emailservice:csvupload' %}">csv upload</a>
     <div class="py-3 text-center">
 
         <h4 style="color:blue">Write Mail</h4>
@@ -33,7 +34,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">From:- purnachandra.patro@gmail.com</h4>
-            <form method="post" class="needs-validation" action="/emailservice/sendmail/" novalidate>
+            <form method="post" class="needs-validation" action="{% url 'emailservice:sendmail' %}" novalidate>
                 {% csrf_token %}
                 <div class="mb-3">
                     <label for="email">To Email Id<span class="text-muted">(Required)</span></label>

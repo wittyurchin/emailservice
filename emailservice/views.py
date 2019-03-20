@@ -40,7 +40,7 @@ def csvupload(request):
     # latest_question_list = Question.objects.order_by('-pub_date')[:5]
     # context = {'latest_question_list': latest_question_list}
     context = {}
-    return render(request, 'emailservice/index.html', context)
+    return render(request, 'emailservice/csvupload.html', context)
 
 
 #

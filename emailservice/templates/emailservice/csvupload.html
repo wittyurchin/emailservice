@@ -23,7 +23,7 @@
         {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
         <br/>
         <div class="card-body">
-            <form method="post" enctype="multipart/form-data" action="/emailservice/upload/">
+            <form method="post" enctype="multipart/form-data" action="{% url 'emailservice:upload' %}">
                 {% csrf_token %}
                 <div class="input-group">
                     <div class="custom-file">
