@@ -5,7 +5,7 @@ Django==2.1.7
 kombu==4.4.0
 mysqlclient==1.4.2.post1
 numpy==1.16.2
-opencv-python==4.0.0.21
+opencv-python==4.2.0.32
 python-logstash==0.4.6
 pytz==2018.9
 vine==1.2.0
